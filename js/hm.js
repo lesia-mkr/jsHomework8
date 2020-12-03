@@ -155,14 +155,23 @@ function getBooks (author, books) {
 };
 getBooks('Лермонтов',book);
 
+console.log('fffffffffffffffffffffffffffffffffffff')
 /**
- * не смогла 
+ *   
  * Написать функцию sortByParam. Задача на метод 'sort' массива.
 
  Функция принимает на вход имя свойства и массив объектов.
  Функция сортирует объекты в массиве в порядке возрастания по указанному свойству. */
 
-
+function sortByParam(name, array){
+    let sortingByNums = (a, b) => a[name] - b[name];
+    let sortingByLetters = (a, b) => a[name].localeCompare(b[name]);
+    if (typeof array[0][name] === 'number') return array.sort(sortingByNums);
+    else return array.sort(sortingByLetters);
+    
+}
+let booksBypages = sortByParam('author',book);
+console.log(booksBypages);
 
  /**рошлые дз, которые я кидала, но они не получили оценки в ведомости, так что копирую их сюда же, тк наверно они потерялись среди всего 
   * 
