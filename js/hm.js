@@ -92,8 +92,8 @@ function getGoodsByPrice(from, to, obj){
 };
 
 
-let fffffff = getGoodsByPrice(1000, 3000, goods);
-console.log(fffffff);
+let availableGoods = getGoodsByPrice(1000, 3000, goods);
+console.log(availableGoods);
 
 /*Написать функцию getByTitle.
 
@@ -155,7 +155,6 @@ function getBooks (author, books) {
 };
 getBooks('Лермонтов',book);
 
-console.log('fffffffffffffffffffffffffffffffffffff')
 /**
  *   
  * Написать функцию sortByParam. Задача на метод 'sort' массива.
@@ -170,8 +169,8 @@ function sortByParam(name, array){
     else return array.sort(sortingByLetters);
     
 }
-let booksBypages = sortByParam('author',book);
-console.log(booksBypages);
+let sortedBooks = sortByParam('author',book);
+console.log(sortedBooks);
 
  /**рошлые дз, которые я кидала, но они не получили оценки в ведомости, так что копирую их сюда же, тк наверно они потерялись среди всего 
   * 
