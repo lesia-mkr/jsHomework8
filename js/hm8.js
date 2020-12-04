@@ -31,11 +31,6 @@
  } 
  
 let cats = getCats();
-/*
- for (let cat of cats) {
-     console.log(cat['name']);
-    console.log(cat['additional_info']['vaccinations'])
- };*/
 
 
 function generateCatsCards(catsCard){
@@ -87,12 +82,6 @@ function generateCatsCards(catsCard){
 }
 generateCatsCards(document.querySelector('.cats'));
 
-/*Написать функцию generateTable, которая принимает на вход массив объектов и создает таблицу.
-Функция не должна быть привязаны к конкретным значениям.
-Заголовки ячеек - названия свойств.
-Например, для articles заголавками будут: id, title, text, author; для goods заголавками будут: title, price, count.
-
- Массивы для тестирования:
  let articles = [
      {
          id: 1,
@@ -147,7 +136,31 @@ generateCatsCards(document.querySelector('.cats'));
          count: 5
      }
  ];
- 
- Примеры вызова функции:
+/*Написать функцию generateTable, которая принимает на вход массив объектов и создает таблицу.
+Функция не должна быть привязаны к конкретным значениям.
+Заголовки ячеек - названия свойств.
+Например, для articles заголавками будут: id, title, text, author; для goods заголавками будут: title, price, count.*/
+
+function generateTable(array) {
+    let tableArea = document.getElementById('tables');
+    let table = document.createElement('table');
+    let element = array[0];
+    let row = table.insertRow();
+    for (let cell in element) {
+        let cap = row.insertCell();
+        cap.innerText = cell;
+    };    
+    for (let elemen of array){
+        let i = 0;
+        let row = table.insertRow();
+        for (let cell in elemen){
+            let newCell = row.insertCell(i++);
+            newCell.innerText = elemen[cell];
+        }
+    };
+    console.log(table);
+    tableArea.append(table);
+}
+
  generateTable(articles); // генерация таблицы со статьями
- generateTable(goods); // генерация таблицы с товарами */
+ generateTable(goods); // генерация таблицы с товарами 
