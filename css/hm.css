@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    max-width: 500px;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.mainCard {
+    margin: 15px;
+    padding: 15px;
+    border: 3px solid black;
+    display: flex;
+    flex-direction: column;
+}
+.basicInfo,
+.specialInfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.adiction,
+.img_width{
+    max-width: 250px;
+}
