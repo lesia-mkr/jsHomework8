@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/hm9.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<section>
+
+    <div class="article">
+        <p>Короткий текст 1</p>
+        <p>
+            Длинный текст Длинный текст
+            Длинный текст Длинный текст
+            Длинный текст Длинный текст
+        </p>
+    </div>
+
+    <div class="article">
+        <p>Короткий текст 2</p>
+        <p>
+            Длинный текст Длинный текст
+            Длинный текст Длинный текст
+            Длинный текст Длинный текст
+        </p>
+    </div>
+
+    <div class="article">
+        <p>Короткий текст 3</p>
+        <p>
+            Длинный текст Длинный текст
+            Длинный текст Длинный текст
+            Длинный текст Длинный текст
+        </p>
+    </div>
+    <div class="article">
+        <p>Короткий текст 4</p>
+        <p>
+            Длинный текст Длинный текст
+            Длинный текст Длинный текст
+            Длинный текст Длинный текст
+        </p>
+    </div>
+
+</section>
+
+<div id="present_container">
+    <h3>Выбор подарка</h3>
+    <p data-present-empty="empty">Подарок</p>
+    <p data-present-empty="empty">Подарок</p>
+    <p data-present="car">Подарок</p>
+    <p data-present="dog">Подарок</p>
+    <p data-present-empty="empty">Подарок</p>
+    <p data-present="book">Подарок</p>
+</div>
+
+<div id="tables"></div>
+<div>
+    <form name="hm">
+        <label><input type="checkbox" name="box" value="1">Отметьте, если хотите указать дополнительную информацию</label>
+        <input type="text" name='text' disabled>
+        <div>
+           <label class="lable">Add comment: <input type="text" name="textArea" placeholder="text"></label>
+            <input type="submit"> 
+        </div>
+        
+    </form>
+</div>
+<div id='commentPlace'></div>
+<div id="forBooks">
+    <form id="books">
+        <p>show books</p>
+        <input type="number" name="counter" id="counter" value="0">
+        <div id="buttons">
+            <span class="material-icons" id="add">add</span>
+            <span class="material-icons" id="remove"> remove</span>
+        </div>
+        
+    </form>
+</div>
+    <script src="js/hm9_11.js"></script>
+</body>
+</html>
