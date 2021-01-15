@@ -199,12 +199,25 @@ function generateField(n) {
     }
     document.getElementById("game-field").append(container);
     let prizesArr = Object.keys(prizes);
-    console.log(Math.floor(Math.random() * (n*n)), Math.floor(Math.random()*n**2) );
+    let l = -1, id = 0, lArr = [-1, -1, -1];
     for (let item of prizesArr){
-        document.getElementById(`${Math.floor(Math.random() * (n*n))}`).setAttribute("prise", item);
+        l = Math.floor(Math.random() * (n*n));
+        function checkId(){
+            for (let num of lArr){
+                if (num === l){
+                    l = Math.floor(Math.random() * (n*n));
+                    checkId();
+                }
+            }
+        }
+        checkId();
+        lArr[id] = l;
+        id++;
+        document.getElementById(l).setAttribute("prise", item);
+        document.getElementById(l).style.background = 'pink';
     }
 }
-generateField(8);
+generateField(4);
 
  /**nрошлые дз, которые я кидала, но они не получили оценки в ведомости, так что копирую их сюда же, тк наверно они потерялись среди всего 
   * дз 5, та задача которую надо исправить

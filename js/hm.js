@@ -1,50 +1,6 @@
 'use strict';
 console.log('Занятие 7');
 /*
-*Объект для задач #1 и #2
-
-    let goods = {
-        piano: {
-            title: "Пианино",
-            price: 3000,
-            count: 25
-        },
-        guitar: {
-            title: "Гитара",
-            price: 1200,
-            count: 40
-        },
-        drum: {
-            title: "Барабаны",
-            price: 2700,
-            count: 12
-        },
-        flute: {
-            title: "Флейта",
-            price: 900,
-            count: 50
-        },
-        harp: {
-            title: "Арфа",
-            price: 3400,
-            count: 5
-        }
-    };
-Объект для задачи #3 и #4
-
-    let books = [
-        { author: 'Пушкин', title: 'Пир во время чумы', pageCount: 5},
-        { author: 'Гоголь', title: 'Мертвые души', pageCount: 470},
-        { author: 'Лермонтов', title: 'Тамань', pageCount: 190},
-        { author: 'Гончаров', title: 'Обломов', pageCount: 610},
-        { author: 'Лермонтов', title: 'Герой Нашего Времени', pageCount: 191},
-        { author: 'Пушкин', title: 'Руслан и Людмила', pageCount: 50},
-        { author: 'Лермонтов', title: 'Бородино', pageCount: 2},
-    ];
-
-
-
-
 Написать функцию getGoodsByPrice.
 
   Функция принимает на вход: from, to и obj:
@@ -111,21 +67,19 @@ console.log(availableGoods);
  Функция ничего не возвращает.*/
 
  function getByTitle(title, countToCart, obj ){
-     let success = false;
      for (let good in obj){
         if (obj[good].title === title && countToCart <= obj[good].count) {
              obj[good].count += countToCart;
-             success = true
-            console.log(`${obj[good].title} достаточно на складе`, obj[good].count);
+            return `${obj[good].title} достаточно на складе, ${obj[good].count}`;
         } else if (obj[good].title === title && countToCart > obj[good].count) {
-            success = true;
-            console.log(`${obj[good].title} not достаточно на складе`, obj[good].count);
+            return `${obj[good].title} not достаточно на складе, ${ obj[good].count}`;
         } 
      }
-     if (success === false) console.log(`${title} is not found`)
+     return `${title} is not found`;
  }
 
- getByTitle('Пианинfо', 38, goods);
+ 
+ console.log(getByTitle('Пианино', 3, goods));
 
 
  /*Написать функцию getBooks.
@@ -169,7 +123,7 @@ function sortByParam(name, array){
     else return array.sort(sortingByLetters);
     
 }
-let sortedBooks = sortByParam('author',book);
+let sortedBooks = sortByParam('pageCount',book);
 console.log(sortedBooks);
 
  /**рошлые дз, которые я кидала, но они не получили оценки в ведомости, так что копирую их сюда же, тк наверно они потерялись среди всего 
@@ -204,11 +158,9 @@ function countGoods (goods){
     } if ( 5 <= (goods % 10) && (goods % 10) <= 9) {
         return `${goods} товаров `;
     }
-};
+}
 
-let result = countGoods(210);
-
-console.log(result);
+console.log(countGoods(210));
 
 /*  п
 
@@ -229,7 +181,7 @@ for (let i = 0; i < str.length; i++) {
             }
         } 
     }
-};
+}
 
 
 console.log(counter);
@@ -258,7 +210,7 @@ for (let i = 0; i < str.length; i++){
             word = word1;
         }
     }
-};
+}
 console.log(n, word);
 
 
@@ -278,19 +230,16 @@ function range( from, to, step = 1) {
         nums.push(i);
     }
     return nums;
-};
+}
 
-let num = range(1, 29, 9);
-
-console.log(num);
+console.log(range(1, 29, 9));
 
 /**Дано целое положительное число N.
 Вычислите сумму его цифр, используя рекурсию (строки, массивы и циклы использовать запрещено). */
 function getSum(n) {
     if (n === 0) return n;
     return (n % 10) + getSum((n - (n % 10)) / 10);
-    
-};
+}
 
-let l = getSum(1050665);
-console.log(l);
+
+console.log(getSum(1050665));

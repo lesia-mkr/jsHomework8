@@ -67,12 +67,17 @@ table {
     max-width: 100px;
     display: flex;
 }
-#buttons span{
+
+#buttons button{
     margin: 10px;
     border-radius: 50%;
     background-color: #a0d468;
     color: #d770ad;
     border: 2px solid #d770ad;
+}
+button:disabled{
+    opacity: 0.5;
+    background-color: gray;
 }
 .lable {
     margin: 15px;

@@ -238,48 +238,71 @@ let books = [
      { author: 'Лермонтов', title: 'Бородино', pageCount: 2, count: 5},
  ];
 
+
  let bookCounter = document.forms.books.elements.counter.value;
  let booksOnShelf = 0;
  let bookshelf = document.createElement('div');
  document.getElementById('forBooks').append(bookshelf);
  bookshelf.setAttribute('id', 'bookshelf');
  document.forms.books.addEventListener('submit', nenado);
+ let buttons = document.getElementById('buttons');
+ let icons = document.querySelectorAll('.material-icons')
 
 function nenado(event){
     event.preventDefault();
 }
+
 function getCounter(num){
     if (num > books.length) num = books.length;
     else if (num < 0) num = 0;
     return num;
 }
 
+
+
+
+document.forms.books.elements.counter.addEventListener('focus', checkButtons());
+
 function generateBookshelf(event){
      bookCounter = document.forms.books.elements.counter.value;
      bookCounter = getCounter(bookCounter);
-     if (event.target.id === 'add' && (booksOnShelf + bookCounter) <= books.length){
-        for (let i = 0; i < bookCounter; i++){
+     if (event.target.id === 'add'){
+        for (let i = booksOnShelf; i < bookCounter; i++){
             let card = document.createElement('div');
-            booksOnShelf++
+            booksOnShelf++;
             for(let elem in books[i]){
                 let inf = document.createElement('p');
                 inf.innerText = String(elem + ': ' + books[i][elem]);
                 card.append(inf);
-                
             }
             card.style.border = '3px solid #a0d468';
             card.setAttribute('id',i + 'book')
             bookshelf.append(card);
         };
      } else if (event.target.id === 'remove') {
-         for (let i = bookCounter; i > 0; i--){
+         for (let i = (booksOnShelf - bookCounter); i > 0; i--){
              let lastBook = document.querySelector('#bookshelf div:last-child');
              lastBook.remove();
              booksOnShelf--;
          }
      };
-
+     document.forms.books.elements.counter.value = booksOnShelf;
+     checkButtons();
+     
  };
- let buttons = document.getElementById('buttons');
  
+ function checkButtons(){
+    if (booksOnShelf === books.length) {
+        document.forms.books.elements.add.disabled = true;
+        document.forms.books.elements.remove.disabled = false;
+    }
+    else if (booksOnShelf === 0) {
+        document.forms.books.elements.remove.disabled = true;
+        document.forms.books.elements.add.disabled = false;
+    }
+    else {
+        for (let botton of icons) botton.disabled = false;
+    }
+ }
+
  buttons.addEventListener('click', generateBookshelf);
